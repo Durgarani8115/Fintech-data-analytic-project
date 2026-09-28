@@ -1,105 +1,66 @@
-Personal Finance Tracker with AI Expense Prediction
-🚀 Track, Predict, and Save Effortlessly!
-This project is an intelligent Personal Finance Tracker that helps you monitor expenses, set budgets, and predict future spending using AI. Built with Django, React.js, TensorFlow, and PostgreSQL, it simplifies financial management like never before!
+# Personal Finance Tracker with AI Expense Prediction 🚀
 
-🌟 Why This Project?
-Managing finances can be overwhelming.
-💸 Do you struggle with tracking your expenses?
-📊 Wish you had AI-powered predictions for better budgeting?
-📉 Want an intuitive dashboard to visualize spending trends?
+An intelligent Personal Finance Tracker that monitors expenses, sets category budgets, and forecasts future spending using Machine Learning. Built with **Django REST Framework**, **React.js (Vite)**, and **scikit-learn / NumPy**.
 
-This project is your all-in-one solution! It brings:
-✔ Real-time Expense Tracking – Log & categorize expenses easily
-✔ AI-Powered Predictions – Forecast future expenses using past trends
-✔ Smart Budgeting – Set financial goals & track savings
-✔ Visual Dashboards – Interactive charts for financial insights
+---
 
-📌 Project Workflow
-User Registration & Authentication
+## 🌟 Key Features
+- **Real-time Expense Tracking**: Log, search, filter, and categorize daily expenses.
+- **AI-Powered Predictive Engine**: Machine Learning regression model that forecasts upcoming 30-day spending per category with confidence ratings and anomaly alerts.
+- **Interactive "What-If" Spending Simulator**: Simulate lifestyle or discretionary adjustments and see real-time impact on financial goals.
+- **Category Budget Manager**: Set spending limits per category with visual color-coded warnings (under budget, warning, limit exceeded).
+- **Savings Milestones**: Target goal tracking with one-click deposits.
+- **Visual Analytics**: Dynamic monthly spending velocity charts and interactive category breakdown donut bars.
+- **Multi-Currency & Themes**: Instant switching between `$ USD`, `₹ INR`, `€ EUR`, `£ GBP` and Dark/Light modes.
 
-Sign up & log in securely
-Encrypted user data storage
-Expense Management
+---
 
-Add, edit, or delete transactions
-Categorize expenses (Food, Transport, Rent, etc.)
-AI Predictions
+## ⚡ Quick Start (Currently Running!)
 
-Machine learning model predicts future expenses
-Uses TensorFlow for trend analysis
-Budget Planning & Savings Tracker
+### 1️⃣ One-Click Run (Windows)
+Double-click [`run_project.bat`](file:///d:/Project/Fintech%20college_Project/Personal-Finance-Tracker-with-AI-Expense-Prediction/run_project.bat) to launch both services simultaneously.
 
-Set monthly budgets for each category
-Track savings goals & progress
-Dashboard Visualization
+---
 
-View insights with interactive graphs
-Monitor income vs expenses
-![Screenshot 1](images/screenshot1.png)  
-![Screenshot 2](images/screenshot2.png)
+### 2️⃣ Manual Run Commands
 
-*********************************************************************************************************************************************
+#### Backend (Django REST API)
+```bash
+cd backend
+venv\Scripts\python.exe manage.py runserver 127.0.0.1:8000
+```
+- API Base: `http://127.0.0.1:8000/api/`
+- Prediction Endpoint: `http://127.0.0.1:8000/api/predict/`
+- Analytics Endpoint: `http://127.0.0.1:8000/api/analytics/`
 
-🏗 Setup & Installation
-1️⃣ Clone the Repository
-  
-  git clone https://github.com/48Naveenkumar/Personal-Finance-Tracker-with-AI-Expense-Prediction.git
-  cd Personal-Finance-Tracker-with-AI-Expense-Prediction
-
-*********************************************************************************************************************************************
-
-2️⃣ Backend Setup (Django API)
-
-  cd backend
-  python -m venv env
-  source env/bin/activate  # On Windows: env\Scripts\activate
-  pip install -r requirements.txt
-  python manage.py migrate
-  python manage.py runserver
-
-*********************************************************************************************************************************************
-
-3️⃣ Frontend Setup (React.js UI)
-
-  cd frontend
-  npm install
-  npm start
-
-*********************************************************************************************************************************************
-
-4️⃣ AI Model Setup (Expense Prediction Model)
-
-  cd backend/ai_model
-  python train_model.py  # Train the AI model
-
-*********************************************************************************************************************************************
-
-🚀 Commands for Running the Project
-🔥 Start the Backend
-
- cd backend
- python manage.py runserver
-
-*********************************************************************************************************************************************
-
-💻 Start the Frontend
+#### Frontend (React + Vite)
+```bash
 cd frontend
-npm start
+npm run dev
+```
+- Web Application: `http://127.0.0.1:5173/`
 
-*********************************************************************************************************************************************
+---
 
-🤖 Train AI Model
-
-cd backend/ai_model
-python train_model.py
-
-*********************************************************************************************************************************************
-
-🤝 Contributing
-I welcome contributions! If you'd like to improve this project:
-
-Fork the repository
-Create a feature branch (git checkout -b feature-branch)
-Commit your changes (git commit -m "Your message")
-Push to the branch (git push origin feature-branch)
-Open a Pull Request 🎉
+## 🏗 Project Architecture
+```
+Personal-Finance-Tracker-with-AI-Expense-Prediction/
+├── backend/
+│   ├── backend/          # Django project settings & URL configuration
+│   ├── expenses/         # App with Expense, Budget, SavingsGoal models & views
+│   │   ├── ml_model.py   # Machine Learning prediction engine
+│   │   ├── models.py     # Database schema definitions
+│   │   ├── views.py      # REST APIs (CRUD, analytics, predictions, seed)
+│   │   └── serializers.py# DRF Serializers
+│   ├── manage.py
+│   └── db.sqlite3        # Local SQLite database
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx       # Complete fintech UI & views
+│   │   ├── App.css       # Glassmorphism styling & animations
+│   │   ├── index.css     # Design tokens & color system
+│   │   └── main.jsx
+│   ├── index.html
+│   └── package.json
+└── run_project.bat       # One-click Windows launcher
+```
